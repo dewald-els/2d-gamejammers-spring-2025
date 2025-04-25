@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c05qfw87yoqq1"]
+
+[ext_resource type="Script" uid="uid://ck0mfo6hht2w6" path="res://scenes/world/world.gd" id="1_dphjl"]
+[ext_resource type="PackedScene" uid="uid://bvy0tgex7u40a" path="res://scenes/entities/player/spawner/player_spawner.tscn" id="2_sl2e5"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_dphjl")
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("2_sl2e5")]
+position = Vector2(312, 176)

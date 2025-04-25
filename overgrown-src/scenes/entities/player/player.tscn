@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://kmdfnlp4no2n"]
+
+[ext_resource type="Script" uid="uid://bpjb4phd3d6rj" path="res://scenes/entities/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://cw1wcmqls70xl" path="res://scenes/entities/player/state/player_state_idle.gd" id="2_75vfm"]
+[ext_resource type="PackedScene" uid="uid://b4j2ro3j0wyu2" path="res://scenes/components/velocity/velocity_component.tscn" id="2_bj7e2"]
+[ext_resource type="Texture2D" uid="uid://scdtrhb7q733" path="res://scenes/entities/player/sprites/player.png" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://cvnoieh8mu4io" path="res://scenes/entities/player/state/player_state_run.gd" id="3_0owmy"]
+[ext_resource type="PackedScene" uid="uid://b0abknqr8162i" path="res://scenes/components/controller/controller_component.tscn" id="3_1murt"]
+[ext_resource type="Script" uid="uid://c4ukxrvjt1std" path="res://core/state_machine/state_machine.gd" id="4_5sj0x"]
+[ext_resource type="Script" uid="uid://dvj0h6kxk4gtn" path="res://scenes/entities/player/state/player_state_dash.gd" id="4_qek5x"]
+[ext_resource type="Script" uid="uid://c8ulp2jjfyu82" path="res://scenes/entities/player/state/player_state_hit.gd" id="5_5gtgg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8afob"]
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_8afob")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_bj7e2")]
+unique_name_in_owner = true
+max_speed = 700
+acceleration = 25.0
+
+[node name="ControllerComponent" parent="." instance=ExtResource("3_1murt")]
+unique_name_in_owner = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_5sj0x")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_75vfm")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("3_0owmy")
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("4_qek5x")
+
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("5_5gtgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8afob")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dovo2")
