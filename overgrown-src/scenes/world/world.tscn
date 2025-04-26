@@ -6,5 +6,9 @@
 [node name="World" type="Node"]
 script = ExtResource("1_dphjl")
 
+[node name="TileMapLayerWalls" type="TileMapLayer" parent="."]
+
+[node name="TileMapLayerFloor" type="TileMapLayer" parent="."]
+
 [node name="PlayerSpawner" parent="." instance=ExtResource("2_sl2e5")]
-position = Vector2(312, 176)
+position = Vector2(311, 176)

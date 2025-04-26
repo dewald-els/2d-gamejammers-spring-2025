@@ -18,13 +18,14 @@ script = ExtResource("1_8afob")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_bj7e2")]
 unique_name_in_owner = true
-max_speed = 700
+max_speed = 300
 acceleration = 25.0
 
 [node name="ControllerComponent" parent="." instance=ExtResource("3_1murt")]
 unique_name_in_owner = true
 
 [node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("4_5sj0x")
 
 [node name="Idle" type="Node" parent="StateMachine"]
@@ -44,3 +45,14 @@ shape = SubResource("CircleShape2D_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_dovo2")
+
+[node name="Debug" type="Node2D" parent="."]
+
+[node name="StateLabel" type="Label" parent="Debug"]
+unique_name_in_owner = true
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 36.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 6
+text = "state:"
