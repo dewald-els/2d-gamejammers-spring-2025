@@ -9,7 +9,7 @@ func physics_update(_delta: float) -> void:
     player.velocity_component.accelerate(direction)
     player.velocity_component.move(player)
 
-    if Input.is_action_just_pressed("player_dash"):
+    if player.dash_cooldown_timer.is_stopped() and Input.is_action_just_pressed("player_dash"):
         finished.emit(STATE_DASH)
     elif direction == Vector2.ZERO:
         finished.emit(STATE_IDLE)

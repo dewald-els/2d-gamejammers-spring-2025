@@ -24,6 +24,13 @@ acceleration = 25.0
 [node name="ControllerComponent" parent="." instance=ExtResource("3_1murt")]
 unique_name_in_owner = true
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="DashCooldownTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_5sj0x")
@@ -43,10 +50,25 @@ script = ExtResource("5_5gtgg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8afob")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("2_dovo2")
+
+[node name="LeftEye" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-1, -1.875)
+scale = Vector2(0.0625, 0.234375)
+texture = ExtResource("2_dovo2")
+
+[node name="RightEye" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(3, -1.875)
+scale = Vector2(0.0625, 0.234375)
 texture = ExtResource("2_dovo2")
 
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 
 [node name="StateLabel" type="Label" parent="Debug"]
 unique_name_in_owner = true

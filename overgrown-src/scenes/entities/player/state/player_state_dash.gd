@@ -9,6 +9,7 @@ var dash_time_remaining: float = 0.0
 
 
 func enter(_p: String, _d: Dictionary = {}) -> void:
+	player.dash_cooldown_timer.start()
 	base_velocity = player.velocity_component.velocity
 	dash_time_remaining = dash_duration
 
