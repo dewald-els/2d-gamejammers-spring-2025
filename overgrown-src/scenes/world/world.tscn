@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://c05qfw87yoqq1"]
+[gd_scene load_steps=6 format=4 uid="uid://c05qfw87yoqq1"]
 
 [ext_resource type="Script" uid="uid://ck0mfo6hht2w6" path="res://scenes/world/world.gd" id="1_dphjl"]
 [ext_resource type="PackedScene" uid="uid://bvy0tgex7u40a" path="res://scenes/entities/player/spawner/player_spawner.tscn" id="2_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://cnow5apwubopx" path="res://scenes/ui/in_game_hud/in_game_hud.tscn" id="3_1fp7r"]
 [ext_resource type="TileSet" uid="uid://bmb7ldtugets" path="res://resources/tilesets/walls_tileset.tres" id="3_6m72w"]
+[ext_resource type="PackedScene" uid="uid://bn2exn04w8t12" path="res://core/spawners/enemy_spawner/enemy_spawner.tscn" id="4_v5dby"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_dphjl")
@@ -15,6 +16,8 @@ tile_map_data = PackedByteArray("AAAJABEAAQABAAEAAAAJABAAAQABAAEAAAAJAA8AAQABAAE
 tile_set = ExtResource("3_6m72w")
 
 [node name="TileMapLayerFloor" type="TileMapLayer" parent="."]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_v5dby")]
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("2_sl2e5")]
 position = Vector2(311, 176)
