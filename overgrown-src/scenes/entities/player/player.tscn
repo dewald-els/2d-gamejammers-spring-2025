@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c8ulp2jjfyu82" path="res://scenes/entities/player/state/player_state_hit.gd" id="5_5gtgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8afob"]
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -43,6 +44,8 @@ script = ExtResource("3_0owmy")
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("4_qek5x")
+dash_power = 2.75
+dash_duration = 0.14
 
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("5_5gtgg")
@@ -53,6 +56,7 @@ shape = SubResource("CircleShape2D_8afob")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(1, 0.819608, 0.4, 1)
 texture = ExtResource("2_dovo2")
 
 [node name="LeftEye" type="Sprite2D" parent="Visuals"]

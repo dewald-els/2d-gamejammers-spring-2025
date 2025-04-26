@@ -19,8 +19,8 @@ func get_direction_to(subject: Node2D) -> Vector2:
 	
 	return direction
 
-func accelerate(direction: Vector2) -> void:
-	var target_velocity: Vector2 = direction * max_speed
+func accelerate(direction: Vector2, max_speed_modifier: float = 1.0) -> void:
+	var target_velocity: Vector2 = direction * (max_speed * max_speed_modifier)
 	velocity = velocity.lerp(target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 func stop() -> void:
